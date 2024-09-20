@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//miau
 public class Personaje :MonoBehaviour
 {
     public PersonajeVida PersonajeVida {get; private set;}
