@@ -1,0 +1,25 @@
+# Unity
+Library/
+Temp/
+Obj/
+Build/
+.vs/
+.vscode/
+Logs/
+MemoryCaptures/
+
+# Archivos de compilación
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+*.svd
+
+# Archivos de sistema operativo
+Thumbs.db
+.DS_Store
+
