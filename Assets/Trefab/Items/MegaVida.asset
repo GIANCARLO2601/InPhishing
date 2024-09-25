@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c5debe8ff255f4ca979037f315531c, type: 3}
+  m_Name: MegaVida
+  m_EditorClassIdentifier: 
+  ID: MegaVida
+  Nombre: Mega Pocion de Vida
+  Icono: {fileID: 21300000, guid: c8b1d3d856bb1dd418e508122609f584, type: 3}
+  Descripcion: "Te devuelve 100 puntos de vida de un solo trago. Pero, como con cualquier
+    oferta demasiado buena para ser verdad, hay algo oscuro detr\xE1s. Forjada en
+    los rincones m\xE1s profundos del Infierno, esta mezcla est\xE1 llena de las
+    almas de los que cayeron en el mayor fraude. Te har\xE1 sentir invencible al
+    instante, pero su sabor te recuerda que, como todo en el Infierno, siempre hay
+    un truco sucio detr\xE1s del poder. \xBFRealmente puedes confiar en algo que
+    viene de los enga\xF1os m\xE1s grandes?"
+  Tipo: 0
+  EsConsumible: 1
+  EsAcumulable: 1
+  AcumulacionMax: 5
+  Cantidad: 1
+  Megarestauracion: 100
