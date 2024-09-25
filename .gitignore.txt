@@ -1,68 +1,50 @@
-# Sistema de carpetas de Unity
+# Archivos temporales de Unity
 [Ll]ibrary/
 [Tt]emp/
 [Oo]bj/
 [Bb]uild/
 [Bb]uilds/
 [Ll]ogs/
-UserSettings/
+[Mm]emoryCaptures/
+[Mm]inidump/
 
-# Paquetes locales de Unity
-Packages/com.unity.package-manager.docstore/
-Packages/com.unity.render-pipelines.high-definition/
-Packages/com.unity.render-pipelines.universal/
-
-# Archivos de Unity generados automáticamente
+# Archivos de proyecto de VS y Rider
+.vscode/
 *.csproj
-*.unityproj
 *.sln
+*.suo
+*.tmp
 *.user
+*.userprefs
 *.pidb
 *.booproj
 *.svd
 *.pdb
-
-# Carpetas de Visual Studio Code
-.vscode/
-
-# Archivos de datos de Unity Cache
-MemoryCaptures/
-
-# Carpetas de la cache de compilación de Unity
-BuildReport/
-
-# Archivos de backup de Unity
-*.bak
-*.backup
-*.tmp
-*.temp
-*.blend1
-*.blend2
-*.blend3
-*.blend4
-*.blend5
-
-# Archivos de sistema específicos
-.DS_Store
-Thumbs.db
-
-# Logs y archivos temporales de sistema
-*.log
-*.diff
-*.patch
-*.orig
-*.rej
-
-# Archivos de meta innecesarios
-*.pidb.meta
-
-# Ignorar carpetas que contienen datos binarios generados o temporales
-Assets/StreamingAssets/*
-
-# Carpetas de configuraciones personales o específicas del entorno
-.vscode/
-.idea/
-*.suo
-*.userprefs
-*.pidb
+*.mdb
 *.opendb
+*.VC.db
+*.pidb.meta
+*.bak
+*.unityproj
+
+# Archivos de prefabs y assets que pueden ser reconstruidos
+*.prefab
+*.asset
+
+# Texturas generadas
+*.renderTexture
+
+# Builds
+*.apk
+*.exe
+*.app
+*.msi
+*.ipa
+*.dmg
+*.unitypackage
+
+# Metadatos de Unity
+*.meta
+
+# Configuraciones locales de usuario
+UserSettings/

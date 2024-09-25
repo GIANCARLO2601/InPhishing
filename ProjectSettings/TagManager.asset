@@ -3,7 +3,8 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Enemigo
   layers:
   - Default
   - TransparentFX
@@ -47,11 +48,17 @@ TagManager:
   - name: limite
     uniqueID: 2684750559
     locked: 0
+  - name: Limbo
+    uniqueID: 1555829641
+    locked: 0
   - name: arboles
     uniqueID: 4291995941
     locked: 0
   - name: casa
     uniqueID: 1228487537
+    locked: 0
+  - name: Items
+    uniqueID: 559468943
     locked: 0
   - name: npc
     uniqueID: 2134897741
