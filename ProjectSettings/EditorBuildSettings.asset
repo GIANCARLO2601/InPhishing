@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EscenaCombate.unity
     guid: 16e900e5886599d4eb0226ae4b202be9
+  - enabled: 1
+    path: Assets/Scenes/EscenaMailFail.unity
+    guid: 703478d6c506338438ee9b22557eef9b
   m_configObjects: {}

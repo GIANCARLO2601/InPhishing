@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc8a59acd79655147b1d05de3b13149d, type: 3}
+  m_Name: LlavePrimerCirculo
+  m_EditorClassIdentifier: 
+  ID: Llave
+  Nombre: Llave
+  Icono: {fileID: -1518136890, guid: 2a4e3f2396ba2d04abfbdc1d809861d8, type: 3}
+  Descripcion: "Forjada en las profundidades del Infierno, esta llave abre puertas
+    selladas por los enga\xF1os m\xE1s oscuros. Parece simple, pero como un phishing,
+    te invita a confiar mientras esconde un precio. \xBFTe atreves a usarla, sabiendo
+    que cada puerta que abre podr\xEDa ser una trampa?"
+  Tipo: 1
+  EsConsumible: 1
+  EsAcumulable: 0
+  AcumulacionMax: 1
+  Cantidad: 0
+  TipoLlave: Llave del infierno

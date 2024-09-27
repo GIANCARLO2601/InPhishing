@@ -57,6 +57,9 @@ TagManager:
   - name: casa
     uniqueID: 1228487537
     locked: 0
+  - name: FondoBatalla
+    uniqueID: 2606177503
+    locked: 0
   - name: Items
     uniqueID: 559468943
     locked: 0
@@ -65,4 +68,7 @@ TagManager:
     locked: 0
   - name: player
     uniqueID: 1069628445
+    locked: 0
+  - name: UI
+    uniqueID: 754506549
     locked: 0

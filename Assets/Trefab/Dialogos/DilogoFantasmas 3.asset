@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca97aa339d9e10d40b788ad8d08c5d6b, type: 3}
+  m_Name: DilogoFantasmas 3
+  m_EditorClassIdentifier: 
+  Nombre: Veilus Dolor
+  ContieneInteraccionExtra: 1
+  InteraccionExtra: 0
+  Saludo: "\xA1Viajero! No proporciones informaci\xF3n personal o financiera"
+  Conversacion:
+  - Oracion: "Ninguna empresa leg\xEDtima te pedir\xE1 que compartas informaci\xF3n
+      sensible como contrase\xF1as, n\xFAmeros de tarjetas de cr\xE9dito o credenciales
+      personales a trav\xE9s de un correo electr\xF3nico no solicitado."
+  Despedida: Ten cuidado viajero

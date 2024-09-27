@@ -4,7 +4,7 @@ public class GhostMovement : MonoBehaviour
 {
     public float moveSpeed = 2.0f; // Velocidad de movimiento del fantasma
     public float changeDirectionTime = 3.0f; // Tiempo entre cambios de dirección
-    public GameObject primerMapa; // Referencia al objeto del mapa
+    public GameObject mapa; // Referencia al objeto del mapa
 
     private Vector3 targetPosition;
     private float timer;
@@ -13,13 +13,14 @@ public class GhostMovement : MonoBehaviour
     private Vector2 mapBoundsY;
 
     private SpriteRenderer spriteRenderer; // Referencia al SpriteRenderer
-
+    public bool PuedeMoverse { get; set; } = true;
     void Start()
     {
+        if (!PuedeMoverse) return;
         // Obtener el componente SpriteRenderer
         spriteRenderer = GetComponent<SpriteRenderer>();
 
-        // Obtener los límites del objeto primerMapa usando su BoxCollider2D
+        // Obtener los límites del objeto mapa usando su BoxCollider2D
         SetMapBounds();
 
         // Inicializa el primer objetivo
@@ -65,10 +66,10 @@ public class GhostMovement : MonoBehaviour
 
     void SetMapBounds()
     {
-        if (primerMapa != null)
+        if (mapa != null)
         {
             // Obtener el BoxCollider2D del objeto "primer mapa"
-            BoxCollider2D mapCollider = primerMapa.GetComponent<BoxCollider2D>();
+            BoxCollider2D mapCollider = mapa.GetComponent<BoxCollider2D>();
 
             if (mapCollider != null)
             {

@@ -73,24 +73,34 @@
     <Compile Include="Assets\Scripts\Personaje\GameManager.cs" />
     <Compile Include="Assets\Scripts\Personaje\Player.cs" />
     <Compile Include="Assets\Scripts\Manager\UIManager2.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\NPCInteraccion.cs" />
     <Compile Include="Assets\Scripts\Personaje\NPCDialogue.cs" />
     <Compile Include="Assets\Scripts\Personaje\PersonajeVida.cs" />
+    <Compile Include="Assets\Scripts\Inventario\Items\ItemMedalla.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\DialogoManager.cs" />
     <Compile Include="Assets\Scripts\Inventario\InventarioSlot.cs" />
     <Compile Include="Assets\Scripts\Inventario\Items\ItemPocionVida.cs" />
     <Compile Include="Assets\Scripts\Inventario\Inventario.cs" />
     <Compile Include="Assets\Scripts\Personaje\EnemyManager.cs" />
     <Compile Include="Assets\Scripts\Personaje\VidaBase.cs" />
+    <Compile Include="Assets\Scripts\Inventario\Items\ItemLlave.cs" />
     <Compile Include="Assets\Scripts\Manager\LevelManager.cs" />
     <Compile Include="Assets\Scripts\Manager\LevelManager_1.cs" />
+    <Compile Include="Assets\Scripts\MailController\emisionCorreo.cs" />
     <Compile Include="Assets\Scripts\Entorno\GhostMovement.cs" />
     <Compile Include="Assets\Scripts\Inventario\InventarioItem.cs" />
     <Compile Include="Assets\Scripts\Personaje\CombateManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\NPCDialogo.cs" />
+    <Compile Include="Assets\Scripts\MailController\ValidarBotonCorreoPhishing.cs" />
     <Compile Include="Assets\Scripts\Personaje\PersonajeAnimaciones.cs" />
     <Compile Include="Assets\Scripts\Personaje\Personaje.cs" />
     <Compile Include="Assets\Scripts\Inventario\ItemPorAgregar.cs" />
     <Compile Include="Assets\Scripts\Welpoints\Welpoints.cs" />
     <Compile Include="Assets\Scripts\Welpoints\NPCMovimiento.cs" />
     <Compile Include="Assets\Scripts\Inventario\Items\ItemMegaVida.cs" />
+    <Compile Include="Assets\Scripts\Entorno\PisoBoss.cs" />
+    <Compile Include="Assets\Scripts\MailController\fantasmaMail.cs" />
+    <Compile Include="Assets\Scripts\MailController\mail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

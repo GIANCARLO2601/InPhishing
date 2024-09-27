@@ -8,33 +8,15 @@
 [Mm]emoryCaptures/
 [Mm]inidump/
 
-# Archivos de proyecto de VS y Rider
-.vscode/
+# Archivos de usuario
+UserSettings/
+*.pidb
+*.userprefs
 *.csproj
 *.sln
 *.suo
-*.tmp
-*.user
-*.userprefs
-*.pidb
-*.booproj
-*.svd
-*.pdb
-*.mdb
-*.opendb
-*.VC.db
-*.pidb.meta
-*.bak
-*.unityproj
 
-# Archivos de prefabs y assets que pueden ser reconstruidos
-*.prefab
-*.asset
-
-# Texturas generadas
-*.renderTexture
-
-# Builds
+# Archivos generados
 *.apk
 *.exe
 *.app
@@ -43,8 +25,13 @@
 *.dmg
 *.unitypackage
 
-# Metadatos de Unity
-*.meta
+# Archivos de compilación y configuración
+Build/
+build/
+Assets/*.csproj
+Assets/*.sln
+Assets/*.user
+Assets/*.userprefs
 
-# Configuraciones locales de usuario
+# Configuraciones locales del editor
 UserSettings/

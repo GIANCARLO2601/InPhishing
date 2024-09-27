@@ -1,0 +1,20 @@
+fileFormatVersion: 2
+guid: e03efd925242528478fe2d5720bb27d6
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - botonRemitente: {instanceID: 0}
+  - botonAsunto: {instanceID: 0}
+  - botonCuerpo: {instanceID: 0}
+  - botonEnlace: {instanceID: 0}
+  - textoRemitente: {instanceID: 0}
+  - textoAsunto: {instanceID: 0}
+  - textoCuerpo: {instanceID: 0}
+  - textoEnlace: {instanceID: 0}
+  - correoPhishing: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
