@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca97aa339d9e10d40b788ad8d08c5d6b, type: 3}
+  m_Name: DialogoNPCprincipal2
+  m_EditorClassIdentifier: 
+  Nombre: Almahus
+  ContieneInteraccionExtra: 1
+  InteraccionExtra: 0
+  Saludo: "Ah, finalmente has llegado. Este lugar es conocido por los deseos desenfrenados
+    que corrompen incluso las almas m\xE1s puras. Pero no dejes que la tentaci\xF3n
+    te distraiga"
+  Conversacion:
+  - Oracion: "Te enfrentas a peligros mayores de lo que imaginas. Tal como en el
+      mundo de los mortales, aqu\xED abundan los enga\xF1os. Un solo clic en el lugar
+      equivocado podr\xEDa ser tu perdici\xF3n. \xBFSabes reconocer una trampa cuando
+      la ves?"
+  - Oracion: "Tu misi\xF3n ser\xE1 identificar esas mentiras."
+  Despedida: "Busca las estatuas  de pasi\xF3n y obtendras una gran recompensa"

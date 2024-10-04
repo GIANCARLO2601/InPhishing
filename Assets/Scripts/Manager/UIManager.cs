@@ -26,7 +26,7 @@ public class UIManager : Singleton<UIManager>
         vidaActual=pVidaActual;
         vidaMax=pVidaMax;
     }
-    private void ActualizarUIPersonaje(){
+    public void ActualizarUIPersonaje(){
         vidaPlayer.fillAmount=Mathf.Lerp(vidaPlayer.fillAmount,
         vidaActual/vidaMax, 10f * Time.deltaTime);
         vidaTMP.text=$"{vidaActual}/{vidaMax}";

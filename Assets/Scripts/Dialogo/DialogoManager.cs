@@ -115,11 +115,23 @@ public class DialogoManager : Singleton<DialogoManager>
         MostrarTextoConAnimacion(siguienteDialogo);
     }
 
-    private void MostrarDespedida(NPCDialogo npcDialogo)
+private void MostrarDespedida(NPCDialogo npcDialogo)
+{
+    // Mostrar la despedida definida en el NPCDialogo
+    MostrarTextoConAnimacion(npcDialogo.Despedida);
+
+    // Obtenemos el componente NPCInteraccionPrincipal del NPCDisponible
+    NPCInteraccionPrincipal npcInteraccionPrincipal = NPCDisponible.GetComponent<NPCInteraccionPrincipal>();
+
+    // Si el NPC tiene el componente, activamos los fantasmas
+    if (npcInteraccionPrincipal != null)
     {
-        // Mostrar la despedida definida en el NPCDialogo
-        MostrarTextoConAnimacion(npcDialogo.Despedida);
+        npcInteraccionPrincipal.ActivarNPCFantasmas(); // Activamos los fantasmas
     }
+}
+
+
+
 
     // Método para pausar el juego pero dejar la UI funcionando
     private void PausarJuego()

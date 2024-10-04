@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using UnityEngine.SceneManagement;
+using System;
 
 public class ValidarBotonCorreoPhishing : MonoBehaviour
 {
+    // Instancia de la vida del personaje
+    private PersonajeVida personajeVida;
+
     [Header("Referencias del UI")]
     public Button botonRemitente;
     public Button botonAsunto;
@@ -33,6 +37,12 @@ public class ValidarBotonCorreoPhishing : MonoBehaviour
 
     private void Start()
     {
+        personajeVida = FindObjectOfType<PersonajeVida>(); // Obtén la referencia de la vida del personaje
+        if (personajeVida == null)
+        {
+            Debug.LogError("No se pudo encontrar el componente PersonajeVida.");
+        }
+
         ContarCamposIncorrectos();
 
         botonRemitente.onClick.AddListener(() => ValidarRemitente());
@@ -60,6 +70,7 @@ public class ValidarBotonCorreoPhishing : MonoBehaviour
         else
         {
             textoRemitente.color = colorIncorrecto;
+            personajeVida.recibirDaño(5); // Reduce la vida al personaje
         }
         ComprobarSiTodoEsCorrecto();
     }
@@ -75,6 +86,7 @@ public class ValidarBotonCorreoPhishing : MonoBehaviour
         else
         {
             textoAsunto.color = colorIncorrecto;
+            personajeVida.recibirDaño(5);
         }
         ComprobarSiTodoEsCorrecto();
     }
@@ -90,6 +102,7 @@ public class ValidarBotonCorreoPhishing : MonoBehaviour
         else
         {
             textoCuerpo.color = colorIncorrecto;
+            personajeVida.recibirDaño(5);
         }
         ComprobarSiTodoEsCorrecto();
     }
@@ -105,6 +118,7 @@ public class ValidarBotonCorreoPhishing : MonoBehaviour
         else
         {
             textoEnlace.color = colorIncorrecto;
+            personajeVida.recibirDaño(5);
         }
         ComprobarSiTodoEsCorrecto();
     }
@@ -117,7 +131,6 @@ public class ValidarBotonCorreoPhishing : MonoBehaviour
 
             // Llamar al método Singleton para destruir el objeto en la EscenaPrincipal
             fantasmaMail.Instance.DestruirObjetoYSoltarItem();
-
 
             // Reanudar la escena principal
             Time.timeScale = 1;

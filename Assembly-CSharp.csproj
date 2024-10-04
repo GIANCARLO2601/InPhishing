@@ -65,20 +65,28 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Inventario\InventarioUI.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\BossDerrotado.cs" />
     <Compile Include="Assets\Scripts\Extras\ZonaConfiner.cs" />
     <Compile Include="Assets\Scripts\Welpoints\WaypointMovimiento.cs" />
     <Compile Include="Assets\Scripts\Personaje\PersonajeMovimiento.cs" />
     <Compile Include="Assets\Scripts\Manager\UIManager.cs" />
     <Compile Include="Assets\Scripts\Extras\Singleton.cs" />
+    <Compile Include="Assets\Scripts\Combate\CombatePreguntas.cs" />
+    <Compile Include="Assets\Scripts\Combate\Puertas.cs" />
     <Compile Include="Assets\Scripts\Personaje\GameManager.cs" />
     <Compile Include="Assets\Scripts\Personaje\Player.cs" />
     <Compile Include="Assets\Scripts\Manager\UIManager2.cs" />
     <Compile Include="Assets\Scripts\Dialogo\NPCInteraccion.cs" />
     <Compile Include="Assets\Scripts\Personaje\NPCDialogue.cs" />
+    <Compile Include="Assets\Scripts\Combate\Batalla.cs" />
     <Compile Include="Assets\Scripts\Personaje\PersonajeVida.cs" />
+    <Compile Include="Assets\Scripts\Combate\Asignar.cs" />
     <Compile Include="Assets\Scripts\Inventario\Items\ItemMedalla.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\BossDialogoManager.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\BossInteraccion.cs" />
     <Compile Include="Assets\Scripts\Dialogo\DialogoManager.cs" />
     <Compile Include="Assets\Scripts\Inventario\InventarioSlot.cs" />
+    <Compile Include="Assets\Scripts\Dialogo\NPCInteraccionPrincipal.cs" />
     <Compile Include="Assets\Scripts\Inventario\Items\ItemPocionVida.cs" />
     <Compile Include="Assets\Scripts\Inventario\Inventario.cs" />
     <Compile Include="Assets\Scripts\Personaje\EnemyManager.cs" />
@@ -99,8 +107,8 @@
     <Compile Include="Assets\Scripts\Welpoints\NPCMovimiento.cs" />
     <Compile Include="Assets\Scripts\Inventario\Items\ItemMegaVida.cs" />
     <Compile Include="Assets\Scripts\Entorno\PisoBoss.cs" />
-    <Compile Include="Assets\Scripts\MailController\fantasmaMail.cs" />
     <Compile Include="Assets\Scripts\MailController\mail.cs" />
+    <Compile Include="Assets\Scripts\MailController\fantasmaMail.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

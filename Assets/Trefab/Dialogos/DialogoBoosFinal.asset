@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca97aa339d9e10d40b788ad8d08c5d6b, type: 3}
+  m_Name: DialogoBoosFinal
+  m_EditorClassIdentifier: 
+  Nombre: LIMBOOS
+  ContieneInteraccionExtra: 1
+  InteraccionExtra: 0
+  Saludo: "\xA1Finalmente, alguien se atreve a llegar hasta aqu\xED! \xBFQu\xE9 es
+    lo que buscas, ingenuo mortal?"
+  Conversacion:
+  - Oracion: Yo soy el maestro de todos ellos. No soy solo un estafador, soy el estafador.
+      Cada correo falso, cada enlace malicioso, cada promesa
+  - Oracion: "T\xFA mismo ca\xEDste en mis trampas, \xBFverdad? Cre\xEDste que podr\xEDas
+      llegar aqu\xED sin pagar un precio, pero todo en este lugar tiene un costo"
+  Despedida: "No importa cu\xE1nto luches, no importa cu\xE1ntas trampas evites,
+    al final, todos caen. Ahora, prep\xE1rate para conocer el verdadero poder del
+    enga\xF1o. \xA1Que comience la batalla!"

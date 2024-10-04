@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ccdc1a845e08994ead209e2e6e38c99, type: 3}
+  m_Name: NuevoCombate 1
+  m_EditorClassIdentifier: 
+  Pregunta: "\xBFCu\xE1l es una se\xF1al com\xFAn de un correo electr\xF3nico de
+    phishing?"
+  respuestaA: "Una direcci\xF3n de correo que parece leg\xEDtima."
+  respuestaAIncorrecta: 1
+  respuestaB: "Un enlace que parece leg\xEDtimo pero redirige a un sitio web falso."
+  respuestaBIncorrecta: 0
+  respuestaC: Un logotipo de alta calidad de una empresa conocida
+  respuestaCIncorrecta: 1
