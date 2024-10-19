@@ -37,7 +37,7 @@ public class Batalla : MonoBehaviour
         {
             Debug.LogError("No se ha asignado la referencia del EnemigoVida en el Inspector.");
         }
-        Debug.Log('gaaa')
+        Debug.Log('gaaa');
 
         // Asignar las funciones a los botones
         botonOpcion1.onClick.AddListener(() => VerificarRespuesta(true));  // Respuesta correcta
