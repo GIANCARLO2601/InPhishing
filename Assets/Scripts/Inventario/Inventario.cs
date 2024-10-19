@@ -93,7 +93,7 @@ public class Inventario : Singleton<Inventario>
     }
 
     // Nueva función para quitar un item del inventario
-    public void QuitarItem(string itemID, int cantidad = 1)
+public void QuitarItem(string itemID, int cantidad = 1)
 {
     for (int i = 0; i < itemsInventario.Length; i++)
     {
@@ -112,5 +112,6 @@ public class Inventario : Singleton<Inventario>
         }
     }
 }
+
 
 }
