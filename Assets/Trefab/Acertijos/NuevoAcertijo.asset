@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31828513540a7e44392ad6f89a6fe98d, type: 3}
+  m_Name: NuevoAcertijo
+  m_EditorClassIdentifier: 
+  acertijo: "Recibes una llamada de alguien que dice ser del soporte t\xE9cnico de
+    tu banco. Te piden tu contrase\xF1a para \"arreglar un problema\" en tu cuenta.
+    \xBFQu\xE9 deber\xEDas hacer?"
+  respuestaA: "Darle la contrase\xF1a inmediatamente."
+  respuestaACorrecta: 0
+  respuestaB: "Pedirle que te env\xEDe un correo para confirmar su identidad."
+  respuestaBCorrecta: 0
+  respuestaC: " Colgar y llamar directamente al n\xFAmero oficial del banco."
+  respuestaCCorrecta: 1

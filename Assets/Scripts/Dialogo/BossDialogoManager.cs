@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;  // Importante para cambiar de escena
+using UnityEngine.SceneManagement;
 
 public class BossDialogoManager : Singleton<BossDialogoManager>
 {
@@ -11,12 +11,13 @@ public class BossDialogoManager : Singleton<BossDialogoManager>
     [SerializeField] private TextMeshProUGUI npcConversacionTMP;
 
     public BossInteraccion NPCDisponible { get; set; }
+    private Sprite spriteBoss;  // Almacena el sprite del Boss
 
     private Queue<string> dialogosSecuencia;
     private bool dialogoAnimado;
     private bool despedidaMostrar;
 
-    public bool DialogoActivo { get; private set; } // Nueva variable para saber si el diálogo está activo
+    public bool DialogoActivo { get; private set; }
 
     private void Start()
     {
@@ -25,66 +26,73 @@ public class BossDialogoManager : Singleton<BossDialogoManager>
 
     private void Update()
     {
-        if (NPCDisponible == null)
-        {
-            return;
-        }
+        if (NPCDisponible == null) return;
 
         // Iniciar el diálogo al presionar "E"
         if (Input.GetKeyDown(KeyCode.E))
         {
             ConfigurarPanel(NPCDisponible.Dialogo);
-            PausarJuego(); // Pausamos el juego, menos la UI
+            PausarJuego();
         }
 
-        // Continuar el diálogo al presionar "Espacio"
+        // Continuar el diálogo o cambiar a la escena de combate
         if (Input.GetKeyDown(KeyCode.Space))
         {
             if (despedidaMostrar)
             {
-                // Mostrar la despedida y luego permitir reanudar el juego
                 AbrirCerrarPanelDialogo(false);
                 despedidaMostrar = false;
-                //ReanudarJuego(); // Reanudar el juego después de la despedida
                 CambiarEscenaCombate();  // Cambiar a la escena de combate
             }
             else if (dialogoAnimado)
             {
-                ContinuarDialogo(); // Continuar el diálogo si no se ha llegado a la despedida
+                ContinuarDialogo();  // Continuar con el siguiente diálogo
             }
         }
 
-        // Permitir salir del diálogo con "Escape" en cualquier momento
+        // Salir del diálogo con "Escape"
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             AbrirCerrarPanelDialogo(false);
-            ReanudarJuego(); // Reanudar el juego cuando se cierra el diálogo
+            ReanudarJuego();
+        }
+    }
+
+    public void AsignarSpriteBoss(Sprite sprite)
+    {
+        if (sprite != null)
+        {
+            spriteBoss = sprite;
+            Debug.Log("Sprite del Boss almacenado en BossDialogoManager.");
+        }
+        else
+        {
+            Debug.LogError("El sprite recibido es nulo.");
         }
     }
 
     public void AbrirCerrarPanelDialogo(bool estado)
     {
-        Debug.Log(panelDialogo != null ? "Panel asignado correctamente" : "Panel no asignado");
-
-    if (panelDialogo != null)
-    {
-        panelDialogo.SetActive(estado);
-        DialogoActivo = estado; // Actualizar el estado del diálogo
-    }
+        if (panelDialogo != null)
+        {
+            panelDialogo.SetActive(estado);
+            DialogoActivo = estado;
+        }
+        else
+        {
+            Debug.LogError("Panel de diálogo no asignado.");
+        }
     }
 
     private void ConfigurarPanel(NPCDialogo npcDialogo)
     {
-        Debug.Log(npcNombreTMP != null ? "Texto de nombre del NPC asignado" : "Texto de nombre no asignado");
-    Debug.Log(npcConversacionTMP != null ? "Texto de conversación asignado" : "Texto de conversación no asignado");
-
-    if (npcNombreTMP != null && npcConversacionTMP != null)
-    {
-        AbrirCerrarPanelDialogo(estado: true);
-        CargarDialogosSecuencia(npcDialogo);
-        npcNombreTMP.text = $"{npcDialogo.Nombre}:";
-        MostrarTextoConAnimacion(npcDialogo.Saludo);
-    }
+        if (npcNombreTMP != null && npcConversacionTMP != null)
+        {
+            AbrirCerrarPanelDialogo(true);
+            CargarDialogosSecuencia(npcDialogo);
+            npcNombreTMP.text = $"{npcDialogo.Nombre}:";
+            MostrarTextoConAnimacion(npcDialogo.Saludo);
+        }
     }
 
     private void CargarDialogosSecuencia(NPCDialogo npcDialogo)
@@ -96,16 +104,22 @@ public class BossDialogoManager : Singleton<BossDialogoManager>
         }
     }
 
-    private IEnumerator AnimarTexto(string oracion)
+    private void ContinuarDialogo()
     {
-        dialogoAnimado = false;
-        npcConversacionTMP.text = "";
-        foreach (char letra in oracion.ToCharArray())
+        if (dialogosSecuencia.Count == 0)
         {
-            npcConversacionTMP.text += letra;
-            yield return new WaitForSecondsRealtime(0.03f); // Usamos WaitForSecondsRealtime para evitar problemas con Time.timeScale
+            MostrarDespedida(NPCDisponible.Dialogo);
+            despedidaMostrar = true;
+            return;
         }
-        dialogoAnimado = true;
+
+        string siguienteDialogo = dialogosSecuencia.Dequeue();
+        MostrarTextoConAnimacion(siguienteDialogo);
+    }
+
+    private void MostrarDespedida(NPCDialogo npcDialogo)
+    {
+        MostrarTextoConAnimacion(npcDialogo.Despedida);
     }
 
     private void MostrarTextoConAnimacion(string oracion)
@@ -113,47 +127,54 @@ public class BossDialogoManager : Singleton<BossDialogoManager>
         StartCoroutine(AnimarTexto(oracion));
     }
 
-    private void ContinuarDialogo()
+    private IEnumerator AnimarTexto(string oracion)
     {
-        if (dialogosSecuencia.Count == 0)
+        dialogoAnimado = false;
+        npcConversacionTMP.text = "";
+        foreach (char letra in oracion.ToCharArray())
         {
-            // Mostrar mensaje de despedida desde el ScriptableObject cuando se terminen los diálogos
-            MostrarDespedida(NPCDisponible.Dialogo);
-            despedidaMostrar = true;
-            return;
+            npcConversacionTMP.text += letra;
+            yield return new WaitForSecondsRealtime(0.03f);
         }
-
-        // Continuar con el siguiente diálogo
-        string siguienteDialogo = dialogosSecuencia.Dequeue();
-        MostrarTextoConAnimacion(siguienteDialogo);
+        dialogoAnimado = true;
     }
 
-    private void MostrarDespedida(NPCDialogo npcDialogo)
-    {
-        // Mostrar la despedida definida en el NPCDialogo
-        MostrarTextoConAnimacion(npcDialogo.Despedida);
-    }
-
-    // Método para pausar el juego pero dejar la UI funcionando
-    private void PausarJuego()
-    {
-        Time.timeScale = 0; // Detenemos el tiempo del juego
-        Debug.Log("Juego pausado, pero los diálogos siguen activos.");
-    }
-
-    // Método para reanudar el juego
-    private void ReanudarJuego()
-    {
-        Time.timeScale = 1; // Reanudamos el tiempo del juego
-        Debug.Log("Juego reanudado.");
-    }
-    
-    // Método para cambiar a la escena de combate
     private void CambiarEscenaCombate()
     {
-        Debug.Log("Cambiando a la escena de combate...");
+        StartCoroutine(TransferirSpriteYEscena());
+    }
+
+    private IEnumerator TransferirSpriteYEscena()
+    {
+        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("EscenaCombate", LoadSceneMode.Additive);
+
+        while (!asyncLoad.isDone)
+        {
+            yield return null;
+        }
+
+        UIManagerEnemigo uiManagerEnemigo = FindObjectOfType<UIManagerEnemigo>();
+        if (uiManagerEnemigo != null)
+        {
+            uiManagerEnemigo.AsignarSpriteEnemigo(spriteBoss);
+            Debug.Log("Sprite del Boss transferido correctamente a la escena de combate.");
+        }
+        else
+        {
+            Debug.LogError("No se encontró UIManagerEnemigo en la EscenaCombate.");
+        }
+
+        UIManager.Instance.ConfigurarUIParaCombate(true);
+    }
+
+    private void PausarJuego()
+    {
         Time.timeScale = 0;
-        SceneManager.LoadScene("EscenaCombate", LoadSceneMode.Additive);
-         // Cambia a la escena de combate
+    }
+
+    private void ReanudarJuego()
+    {
+        Time.timeScale = 1;
+        UIManager.Instance.ConfigurarUIParaCombate(false);
     }
 }

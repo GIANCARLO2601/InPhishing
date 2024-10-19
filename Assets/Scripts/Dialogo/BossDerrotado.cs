@@ -12,6 +12,7 @@ public class BossDerrotado : MonoBehaviour
         {
             // Si ya fue derrotado, le damos la llave al jugador
             Inventario.Instance.AñadirItem(llave, 1);
+            
             Debug.Log("Jugador ha recibido la llave.");
         }
     }

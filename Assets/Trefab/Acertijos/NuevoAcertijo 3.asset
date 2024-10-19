@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31828513540a7e44392ad6f89a6fe98d, type: 3}
+  m_Name: NuevoAcertijo 3
+  m_EditorClassIdentifier: 
+  acertijo: "Ves un anuncio en l\xEDnea que promete un trabajo remoto bien pagado
+    si haces clic en un enlace y completas un formulario con tu informaci\xF3n personal.
+    \xBFQu\xE9 har\xEDas?"
+  respuestaA: Hacer clic en el enlace y llenar el formulario
+  respuestaACorrecta: 0
+  respuestaB: "Investigar la empresa antes de proporcionar cualquier informaci\xF3n."
+  respuestaBCorrecta: 1
+  respuestaC: "Compartir el anuncio con tus amigos para que tambi\xE9n apliquen."
+  respuestaCCorrecta: 0

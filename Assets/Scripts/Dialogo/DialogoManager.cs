@@ -13,7 +13,7 @@ public class DialogoManager : Singleton<DialogoManager>
 
     private Queue<string> dialogosSecuencia;
     private bool dialogoAnimado;
-    private bool despedidaMostrar;
+    public bool despedidaMostrar;
 
     public bool DialogoActivo { get; private set; } // Nueva variable para saber si el diálogo está activo
 
@@ -122,11 +122,15 @@ private void MostrarDespedida(NPCDialogo npcDialogo)
 
     // Obtenemos el componente NPCInteraccionPrincipal del NPCDisponible
     NPCInteraccionPrincipal npcInteraccionPrincipal = NPCDisponible.GetComponent<NPCInteraccionPrincipal>();
-
+    MisionDos misionDos = NPCDisponible.GetComponent<MisionDos>();
     // Si el NPC tiene el componente, activamos los fantasmas
     if (npcInteraccionPrincipal != null)
     {
         npcInteraccionPrincipal.ActivarNPCFantasmas(); // Activamos los fantasmas
+    }
+    if (misionDos != null)
+    {
+        misionDos.ActivarNPC(); // Activamos los fantasmas
     }
 }
 

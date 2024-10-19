@@ -1,32 +1,40 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BossInteraccion : MonoBehaviour
 {
-    [SerializeField] private GameObject npcButtonInteractuar;
-    [SerializeField] private NPCDialogo npcDialogo;
+    [SerializeField] private GameObject npcButtonInteractuar;  // Botón para interactuar
+    [SerializeField] private NPCDialogo npcDialogo;  // Referencia al diálogo
+    [SerializeField] private SpriteRenderer spriteRendererBoss;  // SpriteRenderer del Boss
 
-    public NPCDialogo Dialogo => npcDialogo;
+    public NPCDialogo Dialogo => npcDialogo;  // Propiedad para acceder al diálogo
 
-    // Este método se llama cuando ocurre una colisión física
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        // Comprobamos si la colisión fue con el jugador
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("BOOS Colisión detectada con el Player");
+            Debug.Log("Colisión detectada con el Player.");
             BossDialogoManager.Instance.NPCDisponible = this;
+
+            // Enviar el sprite del Boss al BossDialogoManager
+            if (spriteRendererBoss != null)
+            {
+                BossDialogoManager.Instance.AsignarSpriteBoss(spriteRendererBoss.sprite);
+                Debug.Log("Sprite del Boss enviado al BossDialogoManager.");
+            }
+            else
+            {
+                Debug.LogError("SpriteRenderer del Boss no asignado.");
+            }
+
             npcButtonInteractuar.SetActive(true);
         }
     }
 
-    // Este método se llama cuando se termina la colisión física
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            Debug.Log("Player ha salido del área del BOOS");
+            Debug.Log("Player ha salido del área del Boss.");
             BossDialogoManager.Instance.NPCDisponible = null;
             npcButtonInteractuar.SetActive(false);
         }

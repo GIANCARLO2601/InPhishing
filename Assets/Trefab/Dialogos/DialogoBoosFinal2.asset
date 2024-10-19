@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca97aa339d9e10d40b788ad8d08c5d6b, type: 3}
+  m_Name: DialogoBoosFinal2
+  m_EditorClassIdentifier: 
+  Nombre: Phishius
+  ContieneInteraccionExtra: 1
+  InteraccionExtra: 0
+  Saludo: "\xA1Ah, otro alma perdida! \xBFHas venido aqu\xED a buscar respuestas?
+    O tal vez... \xBFcrees que puedes derrotarme? Jajaja. Muchos antes que t\xFA
+    lo han intentado... y han ca\xEDdo en mis redes. \xBFQu\xE9 te hace pensar que
+    ser\xE1s diferente?"
+  Conversacion:
+  - Oracion: "La confianza es una debilidad, peque\xF1o mortal. Todos caen tarde
+      o temprano, y t\xFA no ser\xE1s la excepci\xF3n. "
+  - Oracion: "Aqu\xED, en el C\xEDrculo de los Enga\xF1ados, aprender\xE1s que no
+      todo lo que brilla es oro, ni todo lo que se ve inocente es seguro. La duda
+      te llevar\xE1 a la derrota... o al conocimiento. \xBFEst\xE1s listo para hacer
+      esa elecci\xF3n?"
+  Despedida: "No olvides, joven guerrero, que un solo clic puede ser tu perdici\xF3n...
+    siempre verifica antes de confiar... Hasta que... alguien m\xE1s... caiga..."

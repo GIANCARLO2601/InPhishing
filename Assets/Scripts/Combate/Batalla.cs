@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 
 public class Batalla : MonoBehaviour
 {
-    private PersonajeVida personajeVida;
+    private PersonajeVida personajeVida;  // Referencia a la vida del jugador
+
     [Header("Referencias del UI")]
     public Button botonOpcion1;
     public Button botonOpcion2;
@@ -16,44 +17,59 @@ public class Batalla : MonoBehaviour
     public TextMeshProUGUI textoPregunta;
     public TextMeshProUGUI textoResultado;  // Mostrar "Te confundiste" o "¡Ganaste!"
 
-    private Asignar asignar; // Referencia al script Asignar para controlar las preguntas
+    [Header("Vida del Enemigo")]
+    [SerializeField] private EnemigoVida enemigoVida;  // Referencia al script EnemigoVida
+
+    private Asignar asignar;  // Controla las preguntas
+
     private void Start()
-    
     {
-        personajeVida = FindObjectOfType<PersonajeVida>(); // Obtén la referencia de la vida del personaje
+        personajeVida = FindObjectOfType<PersonajeVida>();
+        enemigoVida = FindObjectOfType<EnemigoVida>();
         if (personajeVida == null)
         {
-            Debug.LogError("No se pudo encontrar el componente PersonajeVida.");
+            Debug.LogError("No se encontró el componente PersonajeVida.");
         }
+
         asignar = GetComponent<Asignar>();
-        
+        if (enemigoVida == null)
+        {
+            Debug.LogError("No se ha asignado la referencia del EnemigoVida en el Inspector.");
+        }
+
         // Asignar las funciones a los botones
-        botonOpcion1.onClick.AddListener(() => VerificarRespuesta(true)); // Si la respuesta es correcta
+        botonOpcion1.onClick.AddListener(() => VerificarRespuesta(true));  // Respuesta correcta
         botonOpcion2.onClick.AddListener(() => VerificarRespuesta(false)); // Respuesta incorrecta
         botonOpcion3.onClick.AddListener(() => VerificarRespuesta(false)); // Respuesta incorrecta
     }
 
-    // Función para verificar la respuesta
     private void VerificarRespuesta(bool esCorrecta)
     {
         if (esCorrecta)
         {
-            textoResultado.text = "¡Ganaste!";
-            asignar.ResponderCorrectamente();
+            textoResultado.text = "¡Respuesta correcta!";
+            enemigoVida.recibirDaño(15);  // Reducir vida del enemigo
+
+            if (enemigoVida.Salud <= 0)
+            {
+                OtorgarRecompensa();
+                RegresarALaEscenaPrincipal();
+            }
+            else
+            {
+                asignar.ResponderCorrectamente();  // Mostrar siguiente pregunta
+            }
         }
         else
         {
-            textoResultado.text = "Te confundiste";
-            personajeVida.recibirDaño(10);
-            asignar.ResponderIncorrectamente();
-
+            textoResultado.text = "Respuesta incorrecta. Intenta de nuevo.";
+            personajeVida.recibirDaño(10);  // Daño al jugador
+            asignar.ResponderIncorrectamente();  // Mantener la misma pregunta
         }
     }
 
-    // Corutina para otorgar la recompensa después de todas las preguntas correctas
-    public IEnumerator OtorgarRecompensaYRegresar()
+    public void OtorgarRecompensa()
     {
-        // Otorgar la llave al inventario
         if (llaveItem != null)
         {
             Inventario.Instance.AñadirItem(llaveItem, 1);
@@ -61,20 +77,27 @@ public class Batalla : MonoBehaviour
         }
         else
         {
-            Debug.LogWarning("No se ha asignado la llaveItem.");
+            Debug.LogWarning("No se ha asignado ninguna llave.");
         }
-        yield return new WaitForSeconds(1f); 
-        // Esperar un poco antes de cambiar de escena (esto crea una pequeña pausa para la transición)
-        
-
-        // Desactivar la escena de combate y activar la escena principal
-        SceneManager.UnloadSceneAsync("EscenaCombate");
-        SceneManager.SetActiveScene(SceneManager.GetSceneByName("EscenaPrincipal"));
-
-        // Asegurarse de que el juego esté corriendo normalmente (no en pausa)
-        Time.timeScale = 1;
-
-        Debug.Log("Escena de combate cerrada y regresando a la EscenaPrincipal.");
     }
 
+    public void RegresarALaEscenaPrincipal()
+    {
+        SceneManager.UnloadSceneAsync("EscenaCombate");
+
+        Scene mainScene = SceneManager.GetSceneByName("EscenaPrincipal");
+        if (!mainScene.isLoaded)
+        {
+            Debug.LogWarning("Cargando la escena principal...");
+            SceneManager.LoadScene("EscenaPrincipal");
+        }
+        else
+        {
+            SceneManager.SetActiveScene(mainScene);
+        }
+
+        UIManager.Instance.ConfigurarUIParaCombate(false);  // Restaurar UI estándar
+        Time.timeScale = 1;  // Asegurar que el tiempo no esté pausado
+        Debug.Log("Escena de combate cerrada y regresando a la escena principal.");
+    }
 }

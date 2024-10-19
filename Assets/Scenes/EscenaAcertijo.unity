@@ -272,7 +272,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "El correo incluye el logotipo del banco y parece leg\xEDtimo"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -361,6 +361,8 @@ GameObject:
   - component: {fileID: 501912053}
   - component: {fileID: 501912052}
   - component: {fileID: 501912051}
+  - component: {fileID: 501912056}
+  - component: {fileID: 501912055}
   m_Layer: 5
   m_Name: Combate
   m_TagString: Untagged
@@ -455,6 +457,52 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &501912055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501912050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 23a5abb6df96e7f4db96de241d240c43, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  preguntaTMP: {fileID: 1711996359}
+  respuestaATMP: {fileID: 1159080469}
+  respuestaBTMP: {fileID: 497132266}
+  respuestaCTMP: {fileID: 1009067271}
+  listaDePreguntas:
+  - {fileID: 11400000, guid: 3d657a926aa62964b9d3cc1e2a768015, type: 2}
+  - {fileID: 11400000, guid: 4718ea488c5d01c41b34732e807168c4, type: 2}
+  - {fileID: 11400000, guid: 634bf5219ef6d754cb9d63a0ccbeb884, type: 2}
+  - {fileID: 11400000, guid: b093461286d21d54491ea3cec3ab9396, type: 2}
+  - {fileID: 11400000, guid: ac1efb22b11a305418e1f1c7f5f866d5, type: 2}
+  preguntaActual: {fileID: 11400000, guid: 3d657a926aa62964b9d3cc1e2a768015, type: 2}
+  pocionVidaItem: {fileID: 11400000, guid: abd39b4b3253136439259adc3c3d9fca, type: 2}
+  megaVidaItem: {fileID: 11400000, guid: ca8ff41cbd71e0a408928a4242fd0dd1, type: 2}
+  medallaItem: {fileID: 11400000, guid: d9ba7966f9159f648a89b492eddc3766, type: 2}
+  objetoADestruir: {fileID: 0}
+--- !u!114 &501912056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 501912050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d478745f32e5bf8439a65c04179b12dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  botonRespuestaA: {fileID: 1991026460}
+  botonRespuestaB: {fileID: 1343103004}
+  botonRespuestaC: {fileID: 1378628777}
+  pocionVidaItem: {fileID: 0}
+  megaVidaItem: {fileID: 0}
+  medallaItem: {fileID: 0}
+  asignarAcertijoScript: {fileID: 501912055}
 --- !u!1 &1009067269
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,7 +560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "El enlace dirige a una p\xE1gina web segura que comienza con 'https'."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -646,8 +694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "El remitente utiliza un tono urgente y solicita que ingreses tus datos
-    personales a trav\xE9s de un enlace"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -828,8 +875,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1.5514, y: 257.9064}
-  m_SizeDelta: {x: 1440.3983, y: 412.106}
+  m_AnchoredPosition: {x: 3.7367, y: 194.45016}
+  m_SizeDelta: {x: 1142.1537, y: 285.1935}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1193611248
 MonoBehaviour:
@@ -1296,10 +1343,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Un correo electr\xF3nico inesperado llega a tu bandeja de entrada. El
-    remitente afirma ser tu banco, y te pide urgentemente que verifiques tus datos
-    a trav\xE9s de un enlace. \xBFCu\xE1l es la se\xF1al m\xE1s clara de que este
-    correo puede ser un intento de phishing?"
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
