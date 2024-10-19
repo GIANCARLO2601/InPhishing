@@ -90,7 +90,7 @@ public class DialogoManager : Singleton<DialogoManager>
         foreach (char letra in oracion.ToCharArray())
         {
             npcConversacionTMP.text += letra;
-            yield return new WaitForSecondsRealtime(0.03f); // Usamos WaitForSecondsRealtime para evitar problemas con Time.timeScale
+            yield return new WaitForSecondsRealtime(0.004f); // Usamos WaitForSecondsRealtime para evitar problemas con Time.timeScale
         }
         dialogoAnimado = true;
     }

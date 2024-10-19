@@ -1,12 +1,20 @@
 using UnityEngine;
 
-public class BossInteraccion : MonoBehaviour
+public class BossInteraccion : Singleton<BossInteraccion>
 {
+     // Singleton
+
     [SerializeField] private GameObject npcButtonInteractuar;  // Botón para interactuar
     [SerializeField] private NPCDialogo npcDialogo;  // Referencia al diálogo
     [SerializeField] private SpriteRenderer spriteRendererBoss;  // SpriteRenderer del Boss
 
     public NPCDialogo Dialogo => npcDialogo;  // Propiedad para acceder al diálogo
+
+     protected override void Awake()
+    {
+        base.Awake();
+        
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -38,5 +46,11 @@ public class BossInteraccion : MonoBehaviour
             BossDialogoManager.Instance.NPCDisponible = null;
             npcButtonInteractuar.SetActive(false);
         }
+    }
+
+    public void DestruirEnemigo()
+    {
+        Debug.Log("Boss destruido.");
+        Destroy(gameObject);
     }
 }
