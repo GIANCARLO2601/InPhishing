@@ -96,7 +96,6 @@
     <Compile Include="Assets\Scripts\SegundoMapa\MisionDos.cs" />
     <Compile Include="Assets\Scripts\Dialogo\DialogoManager.cs" />
     <Compile Include="Assets\Scripts\Inventario\InventarioSlot.cs" />
-    <Compile Include="Assets\Scripts\SegundoMapa\ControladorAcertijo.cs" />
     <Compile Include="Assets\Scripts\Dialogo\NPCInteraccionPrincipal.cs" />
     <Compile Include="Assets\Scripts\Inventario\Items\ItemPocionVida.cs" />
     <Compile Include="Assets\Scripts\Inventario\Inventario.cs" />
