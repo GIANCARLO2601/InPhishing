@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31828513540a7e44392ad6f89a6fe98d, type: 3}
+  m_Name: NuevoAcertijo 5
+  m_EditorClassIdentifier: 
+  acertijo: "En el oscuro bosque de la ignorancia, aparece un mensaje tentador, invit\xE1ndote
+    a hacer clic. \xBFQu\xE9 acci\xF3n te lleva a perderte m\xE1s en el Infierno?"
+  respuestaA: 'Hacer clic en el enlace sin pensarlo '
+  respuestaACorrecta: 1
+  respuestaB: Marcar el mensaje como spam
+  respuestaBCorrecta: 0
+  respuestaC: Verificar el remitente antes de actuar
+  respuestaCCorrecta: 0

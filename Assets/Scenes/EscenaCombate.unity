@@ -643,6 +643,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 1faa551b22759bb4f97067bd3c3df8dd, type: 2}
   - {fileID: 11400000, guid: 22eb0231cd2e05b4f9be185f9daf80b5, type: 2}
   - {fileID: 11400000, guid: f5dd6a86e066f4a46942e3c046c5a9df, type: 2}
+  - {fileID: 11400000, guid: 04df38818a66e4ec8b605d857c59cd5f, type: 2}
+  - {fileID: 11400000, guid: 277ecee081b8c48a6b668de7a5b37ca9, type: 2}
+  - {fileID: 11400000, guid: f5f69fd71cfcf4031a158960fc725024, type: 2}
+  - {fileID: 11400000, guid: e189cbe533d53483e90f7dcd6ca1dfe5, type: 2}
+  - {fileID: 11400000, guid: 916d50fefc34b4424ada12a463cc1a42, type: 2}
+  - {fileID: 11400000, guid: 45ac84ea8b85349209ab36f52a157f2a, type: 2}
+  - {fileID: 11400000, guid: 2c4e76a118e384fb19b75da3aa34941f, type: 2}
   batalla: {fileID: 501912056}
 --- !u!114 &501912056
 MonoBehaviour:

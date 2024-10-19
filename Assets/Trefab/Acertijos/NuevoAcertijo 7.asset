@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31828513540a7e44392ad6f89a6fe98d, type: 3}
+  m_Name: NuevoAcertijo 7
+  m_EditorClassIdentifier: 
+  acertijo: "Virgilio advierte de falsas promesas que brillan como tesoros en las
+    profundidades del Purgatorio. \xBFC\xF3mo evitas caer en las garras de estos
+    falsos pescadores?"
+  respuestaA: Nunca abrir archivos adjuntos de remitentes desconocidos
+  respuestaACorrecta: 0
+  respuestaB: "Abrir el correo para ver qu\xE9 contiene"
+  respuestaBCorrecta: 1
+  respuestaC: Hacer clic en el enlace para reclamar el tesoro
+  respuestaCCorrecta: 1
