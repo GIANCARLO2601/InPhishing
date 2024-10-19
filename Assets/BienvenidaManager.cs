@@ -6,7 +6,7 @@ public class BienvenidaManager : MonoBehaviour
 {
     public GameObject dialogoPanel;  // El panel que contiene el mensaje de bienvenida
     public TextMeshProUGUI mensajeBienvenida;
-    public float duracionTexto = 3f; // Duración en segundos
+    public float duracionTexto = 5f; // Duración en segundos
 
     void Start()
     {
