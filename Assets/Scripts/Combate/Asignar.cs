@@ -13,7 +13,7 @@ public class Asignar : MonoBehaviour
     private CombatePreguntas preguntaActual;
     [SerializeField] private Batalla batalla;
     private int preguntasCorrectas = 0;
-    private int totalPreguntas = 5; // Número de preguntas correctas para ganar
+    private int totalPreguntas = 12; // Número de preguntas correctas para ganar
 
     void Start()
     {
