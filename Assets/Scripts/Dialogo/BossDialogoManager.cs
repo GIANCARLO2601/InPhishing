@@ -144,28 +144,33 @@ public class BossDialogoManager : Singleton<BossDialogoManager>
         StartCoroutine(TransferirSpriteYEscena());
     }
 
-    private IEnumerator TransferirSpriteYEscena()
+private IEnumerator TransferirSpriteYEscena()
+{
+    AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("EscenaCombate", LoadSceneMode.Additive);
+
+    while (!asyncLoad.isDone)
     {
-        AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("EscenaCombate", LoadSceneMode.Additive);
-
-        while (!asyncLoad.isDone)
-        {
-            yield return null;
-        }
-
-        UIManagerEnemigo uiManagerEnemigo = FindObjectOfType<UIManagerEnemigo>();
-        if (uiManagerEnemigo != null)
-        {
-            uiManagerEnemigo.AsignarSpriteEnemigo(spriteBoss);
-            Debug.Log("Sprite del Boss transferido correctamente a la escena de combate.");
-        }
-        else
-        {
-            Debug.LogError("No se encontró UIManagerEnemigo en la EscenaCombate.");
-        }
-
-        UIManager.Instance.ConfigurarUIParaCombate(true);
+        yield return null;
     }
+
+    Scene combateScene = SceneManager.GetSceneByName("EscenaCombate");
+    if (combateScene.IsValid())
+    {
+        SceneManager.SetActiveScene(combateScene);
+        Debug.Log("Escena de combate activada.");
+    }
+
+    UIManagerEnemigo uiManagerEnemigo = FindObjectOfType<UIManagerEnemigo>();
+    if (uiManagerEnemigo != null)
+    {
+        uiManagerEnemigo.AsignarSpriteEnemigo(spriteBoss);
+        Debug.Log("Sprite del Boss transferido correctamente.");
+    }
+    else
+    {
+        Debug.LogError("No se encontró UIManagerEnemigo en la escena de combate.");
+    }
+}
 
     private void PausarJuego()
     {

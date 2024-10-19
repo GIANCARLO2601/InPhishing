@@ -30,7 +30,7 @@ public class UIManagerEnemigo : Singleton<UIManagerEnemigo>
         {
             barraVidaEnemigo.fillAmount = Mathf.Clamp(pVidaActual / pVidaMaxima, 0, 1);
             textoVidaEnemigo.text = $"{pVidaActual} / {pVidaMaxima}";
-            Debug.Log($"Vida del enemigo actualizada: {pVidaActual} / {pVidaMaxima}");
+            Debug.Log($"Actualizando barra de vida: {pVidaActual} / {pVidaMaxima}");
         }
         else
         {

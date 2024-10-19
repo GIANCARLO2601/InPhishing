@@ -1,5 +1,4 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -11,25 +10,9 @@ public class EnemigoVida : VidaBaseEnemigo
     protected override void Start()
     {
         base.Start();
-
-        // Intentar obtener el UIManagerEnemigo
-        if (SceneManager.GetActiveScene().name == "EscenaCombate")
-        {
-            ObtenerUIManagerEnemigo();
-        }
-        else
-        {
-            SceneManager.sceneLoaded += OnSceneLoaded;
-        }
-    }
-
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
-    {
-        if (scene.name == "EscenaCombate")
-        {
-            ObtenerUIManagerEnemigo();
-            SceneManager.sceneLoaded -= OnSceneLoaded;
-        }
+        Salud = saludMaxima;  // Aseguramos que la salud inicie al máximo
+        ObtenerUIManagerEnemigo();  // Intentar obtener el UIManagerEnemigo
+        ActualizarUIInicial();  // Actualizar la UI con los valores iniciales
     }
 
     private void ObtenerUIManagerEnemigo()
@@ -38,11 +21,20 @@ public class EnemigoVida : VidaBaseEnemigo
 
         if (uiManagerEnemigo != null)
         {
-            uiManagerEnemigo.ActualizarVidaEnemigo(Salud, saludMaxima);  // Inicializar la UI
+            Debug.Log("UIManagerEnemigo encontrado y preparado.");
         }
         else
         {
             Debug.LogError("No se encontró UIManagerEnemigo.");
+        }
+    }
+
+    private void ActualizarUIInicial()
+    {
+        if (uiManagerEnemigo != null)
+        {
+            uiManagerEnemigo.ActualizarVidaEnemigo(Salud, saludMaxima);
+            Debug.Log($"Barra de vida inicializada: {Salud} / {saludMaxima}");
         }
     }
 
@@ -53,6 +45,7 @@ public class EnemigoVida : VidaBaseEnemigo
         if (uiManagerEnemigo != null)
         {
             uiManagerEnemigo.ActualizarVidaEnemigo(Salud, saludMaxima);  // Actualizar UI
+            Debug.Log($"Vida del enemigo actualizada: {Salud} / {saludMaxima}");
         }
     }
 }

@@ -26,6 +26,7 @@ public class Batalla : MonoBehaviour
     {
         personajeVida = FindObjectOfType<PersonajeVida>();
         enemigoVida = FindObjectOfType<EnemigoVida>();
+        Time.timeScale = 1;
         if (personajeVida == null)
         {
             Debug.LogError("No se encontró el componente PersonajeVida.");
@@ -48,7 +49,7 @@ public class Batalla : MonoBehaviour
         if (esCorrecta)
         {
             textoResultado.text = "¡Respuesta correcta!";
-            enemigoVida.recibirDaño(15);  // Reducir vida del enemigo
+            enemigoVida.recibirDaño(10);  // Reducir vida del enemigo
 
             if (enemigoVida.Salud <= 0)
             {
