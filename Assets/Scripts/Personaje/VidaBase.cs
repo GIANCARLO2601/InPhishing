@@ -5,7 +5,7 @@ using UnityEngine;
 public class VidaBase : MonoBehaviour
 {
     [SerializeField] protected float saludInicial;
-    [SerializeField] protected float saludMax;
+    [SerializeField] public float saludMax;
 
     public float Salud { get; protected set; }
 

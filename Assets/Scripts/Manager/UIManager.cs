@@ -10,7 +10,7 @@ public class UIManager : Singleton<UIManager>
     [SerializeField] private Image vidaPlayer;
     [SerializeField] private TextMeshProUGUI vidaTMP;
     [SerializeField] private GameObject panelInventario;
-    [SerializeField] private GameObject minimapa;
+    [SerializeField] private GameObject minimapa;  // Referencia al minimapa
     [SerializeField] private GameObject panelBotones;
 
     private float vidaActual;
@@ -21,8 +21,6 @@ public class UIManager : Singleton<UIManager>
         // Hacer que este objeto no se destruya al cargar una nueva escena
         DontDestroyOnLoad(gameObject);
     }
-
-    
 
     private void Update()
     {
@@ -54,9 +52,14 @@ public class UIManager : Singleton<UIManager>
         }
     }
 
-    public void abrirCerrarPanelInventario()
+    public void AbrirCerrarPanelInventario()
     {
         panelInventario.SetActive(!panelInventario.activeSelf);
+    }
+
+    public void AbrirCerrarMinimapa()
+    {
+        minimapa.SetActive(!minimapa.activeSelf);  // Activar o desactivar el minimapa
     }
 
     public void ConfigurarUIParaCombate(bool enCombate)
@@ -64,14 +67,14 @@ public class UIManager : Singleton<UIManager>
         if (enCombate)
         {
             panelInventario.SetActive(false);  // Ocultar el inventario
-            minimapa.SetActive(false);  
-            panelBotones.SetActive(false);      // Ocultar los botones extra
+            minimapa.SetActive(false);         // Ocultar el minimapa
+            panelBotones.SetActive(false);     // Ocultar los botones extra
         }
         else
         {
-            panelInventario.SetActive(true);  // Mostrar el inventario
-            minimapa.SetActive(true);  
-            panelBotones.SetActive(true);     // Mostrar los botones
+            panelInventario.SetActive(true);   // Mostrar el inventario
+            minimapa.SetActive(true);          // Mostrar el minimapa
+            panelBotones.SetActive(true);      // Mostrar los botones
         }
     }
 }

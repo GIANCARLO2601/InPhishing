@@ -94,24 +94,23 @@ public class Inventario : Singleton<Inventario>
 
     // Nueva función para quitar un item del inventario
     public void QuitarItem(string itemID, int cantidad = 1)
+{
+    for (int i = 0; i < itemsInventario.Length; i++)
     {
-        for (int i = 0; i < itemsInventario.Length; i++)
+        if (itemsInventario[i] != null && itemsInventario[i].ID == itemID)
         {
-            if (itemsInventario[i] != null && itemsInventario[i].ID == itemID)
+            itemsInventario[i].Cantidad -= cantidad;
+
+            if (itemsInventario[i].Cantidad <= 0)
             {
-                itemsInventario[i].Cantidad -= cantidad;
-
-                if (itemsInventario[i].Cantidad <= 0)
-                {
-                    itemsInventario[i] = null;  // Eliminar el item si la cantidad llega a 0
-                }
-
-                InventarioUI.Instance.DibujarItemEnInventario(itemsInventario[i], 0, i);
-                Debug.Log($"Se ha quitado {cantidad} del item {itemID} del inventario.");
-                return;
+                itemsInventario[i] = null; // Eliminar el ítem si la cantidad es 0
             }
-        }
 
-        Debug.LogWarning($"No se encontró el item con ID {itemID} en el inventario.");
+            InventarioUI.Instance.DibujarItemEnInventario(itemsInventario[i], 
+                itemsInventario[i]?.Cantidad ?? 0, i);
+            return;
+        }
     }
+}
+
 }
