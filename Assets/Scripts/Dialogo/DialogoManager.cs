@@ -130,7 +130,8 @@ private void MostrarDespedida(NPCDialogo npcDialogo)
     }
     if (misionDos != null)
     {
-        misionDos.ActivarNPC(); // Activamos los fantasmas
+        misionDos.ActivarNPC();
+         // Activamos los fantasmas
     }
 }
 
