@@ -67,7 +67,7 @@ public class Batalla : MonoBehaviour
         else
         {
             textoResultado.text = "Respuesta incorrecta. Intenta de nuevo.";
-            personajeVida.recibirDaño(10);
+            personajeVida.recibirDaño(20);
             asignar.ResponderIncorrectamente();
         }
     }

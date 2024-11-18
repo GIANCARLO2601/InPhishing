@@ -479,11 +479,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 634bf5219ef6d754cb9d63a0ccbeb884, type: 2}
   - {fileID: 11400000, guid: b093461286d21d54491ea3cec3ab9396, type: 2}
   - {fileID: 11400000, guid: ac1efb22b11a305418e1f1c7f5f866d5, type: 2}
-  - {fileID: 11400000, guid: e88823d5f397342d1bdcfb845c507538, type: 2}
-  - {fileID: 11400000, guid: 5f9ce71eab54c4338b33247f2f832054, type: 2}
-  - {fileID: 11400000, guid: 070628443f7ad400280084aac4c2a55e, type: 2}
-  - {fileID: 11400000, guid: 183d10285eb7b48c1b84426e36968fcf, type: 2}
-  - {fileID: 11400000, guid: 2e9a9a51cd3444137a4c28e9ce1e5bf9, type: 2}
   preguntaActual: {fileID: 11400000, guid: 3d657a926aa62964b9d3cc1e2a768015, type: 2}
   pocionVidaItem: {fileID: 11400000, guid: abd39b4b3253136439259adc3c3d9fca, type: 2}
   megaVidaItem: {fileID: 11400000, guid: ca8ff41cbd71e0a408928a4242fd0dd1, type: 2}

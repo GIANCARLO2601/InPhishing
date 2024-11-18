@@ -15,7 +15,7 @@ public class DialogoManager : Singleton<DialogoManager>
     private bool dialogoAnimado;
     public bool despedidaMostrar;
 
-    public bool DialogoActivo { get; private set; } // Nueva variable para saber si el diálogo está activo
+    public bool DialogoActivo { get; private set; }
 
     private void Start()
     {
@@ -32,8 +32,11 @@ public class DialogoManager : Singleton<DialogoManager>
         // Iniciar el diálogo al presionar "E"
         if (Input.GetKeyDown(KeyCode.E))
         {
-            ConfigurarPanel(NPCDisponible.Dialogo);
-            PausarJuego(); // Pausamos el juego, menos la UI
+            if (!DialogoActivo) // Iniciar solo si no está activo
+            {
+                ConfigurarPanel(NPCDisponible.Dialogo);
+                PausarJuego();
+            }
         }
 
         // Continuar el diálogo al presionar "Espacio"
@@ -41,14 +44,13 @@ public class DialogoManager : Singleton<DialogoManager>
         {
             if (despedidaMostrar)
             {
-                // Mostrar la despedida y luego permitir reanudar el juego
                 AbrirCerrarPanelDialogo(false);
                 despedidaMostrar = false;
-                ReanudarJuego(); // Reanudar el juego después de la despedida
+                ReanudarJuego();
             }
             else if (dialogoAnimado)
             {
-                ContinuarDialogo(); // Continuar el diálogo si no se ha llegado a la despedida
+                ContinuarDialogo();
             }
         }
 
@@ -56,22 +58,30 @@ public class DialogoManager : Singleton<DialogoManager>
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             AbrirCerrarPanelDialogo(false);
-            ReanudarJuego(); // Reanudar el juego cuando se cierra el diálogo
+            ReanudarJuego();
         }
     }
 
     public void AbrirCerrarPanelDialogo(bool estado)
     {
         panelDialogo.SetActive(estado);
-        DialogoActivo = estado; // Actualizar el estado del diálogo
+        DialogoActivo = estado;
     }
 
     private void ConfigurarPanel(NPCDialogo npcDialogo)
     {
-        AbrirCerrarPanelDialogo(estado: true);
+        AbrirCerrarPanelDialogo(true);
+        ReiniciarEstadoDialogo(); // Reiniciamos el estado del diálogo
         CargarDialogosSecuencia(npcDialogo);
         npcNombreTMP.text = $"{npcDialogo.Nombre}:";
         MostrarTextoConAnimacion(npcDialogo.Saludo);
+    }
+
+    private void ReiniciarEstadoDialogo()
+    {
+        despedidaMostrar = false;
+        dialogoAnimado = true; // Asegurar que se pueda animar texto correctamente
+        dialogosSecuencia.Clear(); // Limpiar cualquier texto anterior
     }
 
     private void CargarDialogosSecuencia(NPCDialogo npcDialogo)
@@ -90,7 +100,7 @@ public class DialogoManager : Singleton<DialogoManager>
         foreach (char letra in oracion.ToCharArray())
         {
             npcConversacionTMP.text += letra;
-            yield return new WaitForSecondsRealtime(0.004f); // Usamos WaitForSecondsRealtime para evitar problemas con Time.timeScale
+            yield return new WaitForSecondsRealtime(0.004f);
         }
         dialogoAnimado = true;
     }
@@ -104,51 +114,44 @@ public class DialogoManager : Singleton<DialogoManager>
     {
         if (dialogosSecuencia.Count == 0)
         {
-            // Mostrar mensaje de despedida desde el ScriptableObject cuando se terminen los diálogos
             MostrarDespedida(NPCDisponible.Dialogo);
             despedidaMostrar = true;
             return;
         }
 
-        // Continuar con el siguiente diálogo
         string siguienteDialogo = dialogosSecuencia.Dequeue();
         MostrarTextoConAnimacion(siguienteDialogo);
     }
 
-private void MostrarDespedida(NPCDialogo npcDialogo)
-{
-    // Mostrar la despedida definida en el NPCDialogo
-    MostrarTextoConAnimacion(npcDialogo.Despedida);
-
-    // Obtenemos el componente NPCInteraccionPrincipal del NPCDisponible
-    NPCInteraccionPrincipal npcInteraccionPrincipal = NPCDisponible.GetComponent<NPCInteraccionPrincipal>();
-    MisionDos misionDos = NPCDisponible.GetComponent<MisionDos>();
-    // Si el NPC tiene el componente, activamos los fantasmas
-    if (npcInteraccionPrincipal != null)
+    private void MostrarDespedida(NPCDialogo npcDialogo)
     {
-        npcInteraccionPrincipal.ActivarNPCFantasmas(); // Activamos los fantasmas
+        MostrarTextoConAnimacion(npcDialogo.Despedida);
+
+        NPCInteraccionPrincipal npcInteraccionPrincipal = NPCDisponible.GetComponent<NPCInteraccionPrincipal>();
+        MisionDos misionDos = NPCDisponible.GetComponent<MisionDos>();
+
+        if (npcInteraccionPrincipal != null)
+        {
+            npcInteraccionPrincipal.ActivarNPCFantasmas();
+        }
+        if (misionDos != null)
+        {
+            misionDos.ActivarNPC();
+        }
+
+        AbrirCerrarPanelDialogo(false);
+        ReanudarJuego();
     }
-    if (misionDos != null)
-    {
-        misionDos.ActivarNPC();
-         // Activamos los fantasmas
-    }
-}
 
-
-
-
-    // Método para pausar el juego pero dejar la UI funcionando
     private void PausarJuego()
     {
-        Time.timeScale = 0; // Detenemos el tiempo del juego
+        Time.timeScale = 0;
         Debug.Log("Juego pausado, pero los diálogos siguen activos.");
     }
 
-    // Método para reanudar el juego
     private void ReanudarJuego()
     {
-        Time.timeScale = 1; // Reanudamos el tiempo del juego
+        Time.timeScale = 1;
         Debug.Log("Juego reanudado.");
     }
 }
